@@ -1,0 +1,27 @@
+
+nodes:
+  - name: G/G/1
+    service_time_min: 1.0
+    service_time_max: 2.0
+    capacity: 1
+  - name: G/G/2/5
+    service_time_min: 4.0
+    service_time_max: 8.0
+    capacity: 5
+  - name: G/G/2/10
+    service_time_min: 5.0
+    service_time_max: 15.0
+    capacity: 10
+
+transitions:
+  - source: G/G/1
+    targets:
+      G/G/2/5: 0.8
+      G/G/2/10: 0.2
+  - source: G/G/2/5
+    targets:
+      G/G/1: 0.3
+      exit: 0.2
+  - source: G/G/2/10
+    targets:
+      exit: 0.3
