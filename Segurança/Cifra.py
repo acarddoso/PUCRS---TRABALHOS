@@ -32,19 +32,21 @@ def cifrar_vigenere(texto, senha):
     # Criptografa letra por letra
     for i, char in enumerate(texto):
         # 1. Descobre qual letra da senha usar nesta posição
-        letra_senha = senha_higienizada[i % len(senha)]
+        letra_senha = senha_higienizada[i % len(senha_higienizada)]
+
+        # 2. Calcula o deslocamento
         deslocamento = ord(letra_senha) - ord('a')
         
-        # 2. Transforma a letra original do texto em um numero de 0 a 25
+        # 3. Transforma a letra original do texto em um numero de 0 a 25
         numero_letra = ord(char) - ord('a')
         
-        # 3. Aplica o deslocamento e usa % 26 para dar a volta se passar de Z
+        # 4. Aplica o deslocamento e usa % 26 para dar a volta se passar de Z
         novo_numero = (numero_letra + deslocamento) % 26
         
-        # 4. Transforma o numero resultante de volta em letra
+        # 5. Transforma o numero resultante de volta em letra
         char_cifrado = chr(novo_numero + ord('a'))
         
-        # 5. Adiciona a letra cifrada na lista
+        # 6. Adiciona a letra cifrada na lista
         texto_cifrado.append(char_cifrado)
         
     return ''.join(texto_cifrado)

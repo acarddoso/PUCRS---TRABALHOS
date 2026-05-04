@@ -19,11 +19,22 @@ def calcular_ic(texto):
     if n <= 1:
         return 0
     
-    # Quantas vezes cada letra aparece
-    frequencias = [texto.count(chr(i)) for i in range(ord('a'), ord('z') + 1)]
+    # Quantas vezes cada letra aparece 
+    frequencias = []
+    for letra in "abcdefghijklmnopqrstuvwxyz":
+        contagem = texto.count(letra)
+        frequencias.append(contagem)
 
-    # Calculo do IC
-    ic = sum(f * (f - 1) for f in frequencias) / (n * (n - 1))
+    # Conta quantos pares de letras iguais existem
+    pares_iguais = 0
+    for f in frequencias:
+        pares_iguais += f * (f - 1)
+
+    # Total de pares possíveis
+    pares_totais = n * (n - 1)
+
+    # IC = chance de pegar 2 letras iguais
+    ic = pares_iguais / pares_totais
     return ic
 
 def estimar_tamanho_chave(texto, max_len=15):
@@ -69,7 +80,9 @@ def descobrir_senha(texto, tamanho_chave):
             # Conta as letras no subtexto decifrado com o deslocamento atual
             for char in subtexto:
                 # Decifra o caractere
-                char_decifrado = chr(((ord(char) - ord('a') - deslocamento) % 26) + ord('a'))
+                numero = ord(char) - ord('a')                    # letra vira numero
+                numero_decifrado = (numero - deslocamento) % 26  # subtrai e da a volta
+                char_decifrado = chr(numero_decifrado + ord('a'))  # numero vira letra
                 pontuacao += FREQ_PT[char_decifrado]
                 
             if pontuacao > maior_pontuacao:
@@ -90,7 +103,9 @@ def decifrar_vigenere(texto, senha):
     
     for i, char in enumerate(texto):
         deslocamento = ord(senha[i % len(senha)]) - ord('a')
-        char_decifrado = chr(((ord(char) - ord('a') - deslocamento) % 26) + ord('a'))
+        numero = ord(char) - ord('a')                    # letra vira numero
+        numero_decifrado = (numero - deslocamento) % 26  # subtrai e da a volta
+        char_decifrado = chr(numero_decifrado + ord('a'))  # numero vira letra
         texto_decifrado.append(char_decifrado)
         
     return ''.join(texto_decifrado)
@@ -114,7 +129,7 @@ def main():
     tamanho_estimado = estimar_tamanho_chave(texto_cifrado, max_len=20)
     print(f"\n=> Tamanho estimado da senha: {tamanho_estimado}")
     
-    # 2 - Descobrir a senha usando análise de frequência
+    # 2 - Descobrir a senha usando análise de frequencia
     senha_descoberta = descobrir_senha(texto_cifrado, tamanho_estimado)
     print(f"\n=> Senha descoberta: {senha_descoberta}")
     
@@ -128,7 +143,7 @@ def main():
     print(f"\nTexto decifrado com sucesso! Salvo em '{arquivo_saida}'.")
     
     amostra = texto_decifrado[:200]
-    print(f"\nAmostra do texto decifrado:\n{amostra}...")
+    print(f"\nAmostra do texto decifrado:\n{amostra}")
 
 if __name__ == "__main__":
     main()
