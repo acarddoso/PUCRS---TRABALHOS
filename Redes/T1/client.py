@@ -16,7 +16,7 @@ def run_client(server_ip):
 
     # Credenciais em texto claro para testar o protocolo
     username = "admin"
-    password = "secret123"
+    password = "senhaerrada"
     message = f"{username}:{password}"
 
     print(f"[>] Enviando credenciais: {message}")
