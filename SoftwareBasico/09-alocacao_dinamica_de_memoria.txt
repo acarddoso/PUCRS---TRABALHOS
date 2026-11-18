@@ -1,0 +1,90 @@
+9001
+Qual função da biblioteca <stdlib.h> aloca um bloco contíguo de memória no Heap com o tamanho em bytes especificado sem inicializá-lo?
+malloc
+calloc
+realloc
+free
+1
+malloc aloca o número solicitado de bytes no Heap sem limpar seu conteúdo.
+A função malloc(tamanho) aloca memória dinâmica contígua do tamanho solicitado e retorna um ponteiro void* com o endereço do bloco.
+9002
+Qual é a diferença fundamental entre as funções de alocação dinâmica malloc e calloc em C?
+calloc aloca memória e zera todos os seus bytes; malloc apenas reserva a memória mantendo os dados lixo existentes.
+malloc aloca memória no Heap; calloc aloca memória na pilha (Stack).
+calloc só aceita variáveis do tipo char; malloc aceita qualquer tipo primitivo.
+malloc exige o uso da função free; calloc libera a memória automaticamente.
+1
+calloc inicializa todos os bytes alocados com zero; malloc deixa lixo de memória.
+A função calloc(num, size) recebe a quantidade de elementos e o tamanho de cada um, garantindo a inicialização de todos os bits alocados com zero.
+9003
+O que realiza a função realloc(ptr, novo_tamanho) na gestão de memória dinâmica em C?
+Modifica o tamanho do bloco de memória apontado por ptr para novo_tamanho, preservando o conteúdo existente até o limite do menor tamanho.
+Libera o bloco ptr e aloca um novo bloco na memória estática de compilação.
+Zera todo o conteúdo do bloco de memória ptr mantendo seu tamanho original.
+Converte o bloco dinâmico em uma variável global estática imutável.
+1
+realloc redimensiona blocos de memória previamente alocados por malloc/calloc.
+A função realloc altera o tamanho de um bloco alocado previamente, movendo os dados para uma nova área se necessário e retornando o novo endereço.
+9004
+Qual é o objetivo de chamar a função free(ptr) em programas escritos em linguagem C?
+Devolver ao sistema operacional o bloco de memória dinâmica previamente alocado no Heap.
+Zerar o conteúdo de todas as variáveis locais da função corrente.
+Apagar o arquivo de código-fonte .c do disco rígido.
+Fechar todos os ponteiros de arquivos abertos pela função fopen.
+1
+free desaloca a memória dinâmica previamente reservada, disponibilizando-a de volta ao Heap.
+A função free libera a área de memória Heap referenciada pelo ponteiro, evitando acúmulo de memória não utilizada.
+9005
+O que caracteriza um vazamento de memória (memory leak) em aplicações desenvolvidas em C?
+Alocar memória dinâmica com malloc/calloc e perder a referência do ponteiro sem executar free.
+Tentar ler dados de um vetor além do seu limite superior de índices.
+Executar a função free em um ponteiro que já continha o valor NULL.
+Declarar mais de 100 variáveis globais dentro do mesmo arquivo .c.
+1
+Vazamento de memória ocorre quando a memória Heap alocada não é liberada e se perde o ponteiro para ela.
+Ocorre memory leak quando posições de memória do Heap permanecem alocadas após o programa perder todos os ponteiros para elas, consumindo RAM desnecessariamente.
+9006
+O que é um ponteiro pendente (dangling pointer) na linguagem C?
+Um ponteiro que continua armazenando um endereço de memória que já foi liberado pela função free.
+Um ponteiro que ainda não foi declarado pelo pré-processador.
+Um ponteiro que aponta exclusivamente para variáveis qualificadas como const.
+Um ponteiro que é passado como parâmetro por valor para uma função void.
+1
+Ponteiro pendente guarda um endereço de memória cuja alocação já foi desalocada.
+Após o uso da função free(ptr), a variável ptr continua contendo o endereço liberado; desreferenciá-la gera comportamento indefinido.
+9007
+Qual é o valor retornado pelas funções de alocação dinâmica (malloc, calloc, realloc) quando não há memória RAM disponível?
+NULL
+0
+-1
+EOF
+1
+Retornar NULL sinaliza falha por falta de memória livre no sistema.
+Se o sistema operacional não puder suprir a memória solicitada por malloc/calloc/realloc, a função falha e retorna o ponteiro nulo NULL.
+9008
+Por que é uma boa prática essencial utilizar o operador sizeof ao especificar tamanhos em funções como malloc?
+Garante a portabilidade do código, pois o tamanho dos tipos de dados varia conforme a arquitetura do processador.
+Acelera a velocidade de execução da instrução malloc em 50%.
+Impede que a função malloc retorne ponteiros do tipo void*.
+Converte automaticamente a memória alocada no Stack para a memória Heap.
+1
+sizeof obtém dinamicamente o tamanho correto do tipo para a arquitetura alvo.
+Tipos como int ou ponteiros possuem tamanhos distintos entre arquiteturas (ex: 32 bits vs 64 bits); sizeof garante alocação exata em qualquer plataforma.
+9009
+O que ocorre se o programa chamar a função free(ptr) duas vezes consecutivas para o mesmo ponteiro sem alocação intermediária?
+Ocorre um erro em tempo de execução conhecido como double free, que pode provocar colapso ou falha de segurança.
+O sistema ignora a segunda chamada sem causar qualquer impacto.
+A memória Heap dobra de tamanho automaticamente.
+O valor contido na variável apontada é restaurado ao estado inicial.
+1
+Double free corrompe as estruturas internas do alocador do Heap e encerra o processo.
+Tentar liberar o mesmo bloco de memória duas vezes consecutivas (double free) corrompe a lista de blocos livres do sistema e causa crash/falha de segurança.
+9010
+Em qual área de memória gerenciada pelo sistema operacional ocorrem as alocações dinâmicas realizadas via malloc?
+Heap
+Stack
+Segmento de Código (Text)
+Registradores da CPU
+1
+Alocações dinâmicas explícitas em tempo de execução residem no Heap.
+A memória Heap é a região destinada à alocação dinâmica de memória sob controle manual do programador durante a execução do software.

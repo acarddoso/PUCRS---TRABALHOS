@@ -5,14 +5,14 @@
 #include "questoes.h"
 #include "usuarios.h"
 
-#define TOTAL_MODULOS 3
+#define TOTAL_MODULOS 10
 
 int main(void) {
     char nomeUser[50];
     
-    printf("Informe seu identificador (sem espacos): ");
+    printf("Informe seu nome (sem espacos): ");
     scanf("%49s", nomeUser);
-    printf("Ola, %s!\n\n", nomeUser);
+    mostrarBoasVindas(nomeUser);
 
     struct Questao quest[100];
     struct Questao selecionadas[TOTAL_MODULOS];
@@ -20,7 +20,14 @@ int main(void) {
     char nomesArquivos[TOTAL_MODULOS][100] = {
         "01-a_linguagem_de_programacao_c.txt",
         "02-funcoes_em_c_passagem_de_parametros.txt",
-        "03-strings_structs_unions_enums.txt"
+        "03-strings_structs_unions_enums.txt",
+        "04-arquivos.txt",
+        "05-compilacao_modular.txt",
+        "06-bibliotecas_estaticas_e_dinamicas_em_c.txt",
+        "07-manipulacao_de_bits.txt",
+        "08-ponteiros.txt",
+        "09-alocacao_dinamica_de_memoria.txt",
+        "10-ponteiros_para_funcoes.txt"
     };
 
     int quantidade;

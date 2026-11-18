@@ -1,0 +1,90 @@
+6001
+Qual é a extensão padrão de arquivos de biblioteca estática nos sistemas operacionais da família Unix/Linux?
+.a
+.so
+.dll
+.exe
+1
+Bibliotecas estáticas em Linux utilizam a extensão .a (archive).
+Nos sistemas Unix/Linux, arquivos de biblioteca estática possuem a extensão .a, representando um arquivo compactado de objetos .o.
+6002
+Qual utilitário de linha de comando é tradicionalmente empregado para empacotar arquivos objeto .o em uma biblioteca estática .a?
+ar
+gcc
+make
+ldconfig
+1
+O utilitário ar (archiver) cria e mantém arquivos de biblioteca estática .a.
+O comando ar (com opções como rcs) é o responsável por empacotar múltiplos arquivos .o em uma biblioteca estática .a.
+6003
+Qual é a principal vantagem no uso de bibliotecas dinâmicas (.so / .dll) em relação às bibliotecas estáticas (.a)?
+Economia de memória RAM e disco, pois múltiplos programas compartilham a mesma biblioteca em execução sem duplicar código.
+Execução mais rápida das instruções do processador, pois dispensam uso da memória Heap.
+Garantia absoluta de que o programa rodará mesmo que os arquivos da biblioteca sejam excluídos do sistema.
+Eliminação completa da necessidade de utilizar arquivos de cabeçalho .h durante o desenvolvimento.
+1
+Bibliotecas compartilhadas reduzem tamanho em disco e permitem reuso em memória RAM.
+Bibliotecas dinâmicas economizam espaço em disco e memória RAM porque o código da biblioteca é carregado uma vez e compartilhado entre vários processos.
+6004
+Como o código de uma biblioteca estática .a é incorporado ao programa final durante o processo de construção em C?
+O código dos módulos utilizados da biblioteca é copiado diretamente para dentro do executável durante a linkedição.
+A biblioteca permanece isolada no disco e é carregada na memória apenas quando a função main encerra.
+O código da biblioteca é traduzido em macros e inserido no pré-processamento do arquivo .h.
+A biblioteca estática é convertida em um script em lote executado pelo sistema operacional.
+1
+Na vinculação estática, o código compilado da biblioteca torna-se parte integrante do binário executável.
+Durante a linkedição estática, as rotinas necessárias da biblioteca .a são copiadas e embutidas permanentemente no arquivo executável final.
+6005
+Quais flags do gcc são utilizadas para gerar código independente de posição (PIC) e criar uma biblioteca compartilhada .so?
+-fPIC e -shared
+-c e -o
+-Wall e -g
+-static e -ar
+1
+-fPIC gera código independente de posição e -shared instrui a criação da biblioteca .so.
+Para criar uma biblioteca dinâmica no gcc, compila-se os .c com -fPIC e gera-se a biblioteca .so com a opção -shared.
+6006
+O que ocorre no momento da inicialização de um programa vinculado a uma biblioteca dinâmica (.so) se o arquivo da biblioteca for removido do sistema?
+O sistema operacional falha em carregar o programa e exibe um erro de vinculação em tempo de execução (shared library error).
+O programa compila novamente o arquivo da biblioteca automaticamente a partir do código-fonte C.
+O programa é executado normalmente ignorando as chamadas às funções contidas na biblioteca faltante.
+O programa converte automaticamente todas as chamadas de funções em instruções noop.
+1
+A ausência de uma biblioteca dinâmica exigida impede a inicialização do programa.
+Como a vinculação ocorre no carregamento/execução, a falta do arquivo .so resulta em falha de inicialização informada pelo sistema operacional.
+6007
+Qual é a desvantagem do uso exclusivo de bibliotecas estáticas no desenvolvimento e distribuição de software?
+Atualizações na biblioteca exigem que todos os programas clientes sejam recompilados e relinkados para receber as melhorias.
+Exigem obrigatoriamente acesso à internet durante toda a execução do programa.
+Impedem o uso de ponteiros e estruturas de dados dinâmicas nos programas clientes.
+Não permitem o uso de funções com parâmetros de ponto flutuante.
+1
+Atualizar uma biblioteca estática requer a reconstrução de cada executável cliente.
+Qualquer correção ou atualização em uma biblioteca estática exige que todos os programas que a utilizam sejam novamente compilados e vinculados.
+6008
+Quando múltiplos processos executam em paralelo no sistema utilizando a mesma biblioteca dinâmica (.so), como a memória RAM é gerenciada?
+O segmento de código da biblioteca é carregado na memória RAM física apenas uma vez e compartilhado entre os processos.
+Cada processo faz uma cópia completa de 100% da biblioteca na sua pilha de execução individual.
+A biblioteca é carregada na memória apenas para o primeiro processo; os demais entram em estado de espera obrigatoriamente.
+A memória RAM é desativada e as instruções são lidas diretamente do disco rígido.
+1
+O código de bibliotecas dinâmicas é compartilhado em memória física entre processos.
+Sistemas modernos mapeiam a seção de código somente-leitura da biblioteca .so na memória RAM física de modo compartilhado entre todos os processos ativos.
+6009
+Qual flag do gcc é utilizada para especificar diretórios adicionais onde o linker deve procurar bibliotecas durante a compilação?
+-L
+-I
+-l
+-o
+1
+-L especifica pastas de busca para o linker encontrar arquivos de bibliotecas.
+A opção -Lcaminho informa ao gcc/linker em quais diretórios adicionais ele deve procurar os arquivos de biblioteca estática ou dinâmica.
+6010
+Qual flag do gcc é utilizada para vincular uma biblioteca específica pelo nome (por exemplo, -lm para a biblioteca matemática libm)?
+-l
+-L
+-include
+-lib
+1
+-l recebe o nome da biblioteca omitindo o prefixo lib e a extensão.
+A opção -lnome vincula o programa à biblioteca libnome.so ou libnome.a (como -lm para libm).

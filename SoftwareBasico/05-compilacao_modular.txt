@@ -1,0 +1,90 @@
+5001
+Qual é a principal finalidade dos arquivos de cabeçalho (com extensão .h) em projetos modulares na linguagem C?
+Declarar protótipos de funções, definições de tipos e macros para serem compartilhados entre múltiplos arquivos .c.
+Armazenar o código executável já compilado em formato hexadecimal.
+Substituir o compilador gerando diretamente o código de máquina do programa.
+Guardar as variáveis locais temporárias utilizadas durante as chamadas de funções.
+1
+Arquivos .h contêm as interfaces (protótipos, tipos e macros) para módulos C.
+Arquivos de cabeçalho (.h) servem como contratos de interface, expondo declarações publicamente para outros arquivos de código-fonte (.c).
+5002
+Para que servem os chamados include guards (#ifndef, #define, #endif) em arquivos de cabeçalho .h em C?
+Para evitar erros de dupla inclusão e redefinição de tipos durante a compilação.
+Para criptografar o código-fonte impedindo a leitura por terceiros.
+Para incluir automaticamente as bibliotecas do sistema operacional Windows ou Linux.
+Para transformar o arquivo .h em uma biblioteca estática .a automaticamente.
+1
+Include guards impedem que o mesmo cabeçalho seja processado mais de uma vez na mesma unidade de compilação.
+Usar diretivas de pré-processamento como include guards garante que os tipos e protótipos do .h não sejam compilados repetidamente em caso de inclusões indiretas.
+5003
+Qual é a função do qualificador extern na declaração de uma variável em um programa modular em C?
+Informar ao compilador que a variável está definida em outro arquivo de código-fonte, evitando alocação duplicada.
+Tornar a variável local a apenas uma função específica dentro do arquivo .c.
+Impedir que qualquer função altere o valor da variável na memória.
+Alocar dinamicamente a variável na memória Heap durante a inicialização do programa.
+1
+extern avisa que a variável é definida em outro módulo C.
+A palavra-chave extern avisa o compilador de que a variável global existe e seu armazenamento foi alocado em outro módulo de código.
+5004
+O que ocorre especificamente durante a etapa de pré-processamento na compilação de um programa C?
+Expansão de macros, substituição de #define, inclusão de arquivos via #include e remoção de comentários.
+Tradução de instruções C diretamente para comandos mnemônicos em Assembly.
+Resolução de endereços de memória das funções de bibliotecas dinâmicas.
+Execução do código de máquina gerando o arquivo executável final.
+1
+O pré-processador trata apenas diretivas iniciadas com # e limpa comentários.
+A fase de pré-processamento realiza transformações textuais no código C (expansão de #include, macros #define, etc.) antes da compilação real.
+5005
+Qual é a responsabilidade principal da etapa de linkedição (linker) na construção de um programa modular C?
+Combinar múltiplos arquivos objeto (.o) e bibliotecas em um único arquivo executável final.
+Verificar a sintaxe das instruções if, for e while do código-fonte C.
+Converter o código C para linguagem de montagem Assembly especificamente.
+Executar o código C diretamente na memória RAM para testes de performance.
+1
+O linker junta os códigos objeto (.o) e resolve referências cruzadas entre símbolos.
+O ligador (linker) unifica os módulos objetos (.o) e resolve os endereços de funções e variáveis declaradas em diferentes arquivos.
+5006
+O que ocorre ao aplicar o qualificador static a uma função global dentro de um arquivo de código-fonte .c?
+Restringe a visibilidade da função exclusivamente ao próprio arquivo .c onde foi declarada (ligação interna).
+Permite que a função seja chamada por qualquer outro programa no sistema operacional.
+Faz com que a função seja executada automaticamente antes da função main.
+Impede que a função utilize variáveis locais no seu corpo.
+1
+static em funções globais estabelece ligação interna, ocultando a função de outros arquivos .c.
+Ao qualificar uma função global com static, seu escopo fica limitado ao arquivo .c corrente, impedindo que o linker a vincule a chamadas externas.
+5007
+Qual é o formato de arquivo gerado pelo compilador imediatamente após a compilação/montagem de um arquivo .c isolado?
+Um arquivo objeto (.o no Linux ou .obj no Windows).
+Um arquivo executável direto sem dependências.
+Um arquivo de cabeçalho (.h).
+Um arquivo texto contendo apenas os comentários do programador.
+1
+A compilação de um arquivo .c gera um código objeto (.o).
+Cada arquivo .c compilado individualmente produz um arquivo objeto (.o / .obj) contendo código de máquina ainda não vinculado.
+5008
+Por que não se deve incluir o corpo (definição) de funções comuns dentro de arquivos de cabeçalho .h em projetos modulares?
+Porque se o .h for incluído em múltiplos arquivos .c, o linker apontará erro de definição duplicada (multiple definition).
+Porque o pré-processador remove automaticamente todas as funções dentro de arquivos de extensão .h.
+Porque arquivos .h só aceitam código escrito na linguagem Assembly.
+Porque funções em arquivos .h não podem retornar valores inteiros.
+1
+Definir corpos de funções em .h gera múltiplos símbolos iguais no linker ao incluir em vários .c.
+Colocar definições de funções em arquivos .h causa erros de símbolos duplicados na linkedição quando mais de um arquivo .c incluir o cabeçalho.
+5009
+Qual é a diferença entre a diretiva #include <header.h> e a diretiva #include header.h no pré-processador de C?
+<header.h> busca nos diretórios padrão do sistema; header.h busca primeiro no diretório atual do projeto.
+<header.h> inclui apenas arquivos de bibliotecas estáticas; header.h inclui arquivos de bibliotecas dinâmicas.
+<header.h> é exclusivo para C++; header.h é exclusivo para C.
+Não há diferença, ambas funcionam de forma idêntica em qualquer sistema operacional.
+1
+Aspas buscam localmente antes de checar as pastas de inclusão do sistema.
+Com aspas, o pré-processador busca o cabeçalho primeiramente na pasta local do projeto; com colchetes angulares, busca nos diretórios padrão do sistema.
+5010
+Qual flag do compilador gcc é utilizada para apenas compilar um arquivo .c gerando o objeto .o sem invocar o linker?
+-c
+-o
+-Wall
+-std=c99
+1
+A flag -c instrui o gcc a interromper o processo após gerar o arquivo objeto .o.
+A opção -c no gcc compila e monta o arquivo de código-fonte gerando o .o correspondente sem realizar a etapa final de linkedição.

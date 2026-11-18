@@ -1,0 +1,90 @@
+7001
+Qual operador bitwise na linguagem C resulta em 1 para cada bit apenas quando os bits correspondentes de ambos os operandos forem iguais a 1?
+O operador bit a bit AND (&).
+O operador bit a bit OR (|).
+O operador bit a bit XOR (^).
+O operador bit a bit NOT (~).
+1
+O operador & (AND bitwise) exige que ambos os bits sejam 1 para produzir 1.
+O operador bitwise & realiza a operação lógica E bit a bit; o resultado é 1 somente se ambos os bits de entrada forem 1.
+7002
+Qual é o efeito de aplicar o operador de deslocamento à esquerda val << 2 em uma variável inteira positiva em C?
+Multiplicar o valor original de val por 2 elevado à potência 2 (ou seja, multiplicar por 4).
+Dividir o valor original de val por 2.
+Inverter todos os bits da variável val.
+Somar exatamente 2 ao valor contido em val.
+1
+Deslocar N bits à esquerda equivale a multiplicar por 2^N em inteiros.
+O deslocamento de bits à esquerda (<<) move os bits para a esquerda, o que equivale matematicamente a multiplicar o número por 2^N.
+7003
+O que faz o operador bitwise complemento de um (~) quando aplicado a um valor inteiro em C?
+Inverte todos os bits do operando, transformando 0s em 1s e 1s em 0s.
+Define apenas o primeiro bit da variável como 0.
+Calcula a raiz quadrada inteira do valor.
+Zera todos os bits da variável deixando apenas o bit de sinal.
+1
+O operador ~ inverte bit a bit cada posição do número (complemento bitwise).
+O operador bitwise NOT (~) nega individualmente cada bit da variável, invertendo 0 para 1 e 1 para 0.
+7004
+Qual operação bitwise é utilizada para ligar (definir como 1) um bit específico usando uma máscara de bits M em C?
+val = val | M
+val = val & M
+val = val ^ M
+val = val ~ M
+1
+O operador OR (|) com uma máscara de 1s força os bits selecionados para 1.
+Para ligar (setar em 1) um bit específico de uma variável sem alterar os demais, aplica-se o operador OR (|) com a máscara de bits desejada.
+7005
+Qual operador bitwise em C é ideal para alternar (inverter entre 0 e 1) o estado de bits específicos usando uma máscara?
+O operador XOR (^).
+O operador AND (&).
+O operador OR (|).
+O operador NOT (~).
+1
+O operador XOR (^) inverte os bits onde a máscara possui valor 1.
+A operação XOR (ou exclusivo ^) com um bit 1 resulta na inversão do bit correspondente (0 vira 1 e 1 vira 0).
+7006
+Como a operação de bits val & (val - 1) é comumente utilizada em algoritmos de manipulação de bits em C?
+Para remover (desligar) o bit 1 menos significativo (mais à direita) de um número inteiro.
+Para inverter todos os bits pares de uma variável.
+Para checar se um número é divisível por 10.
+Para multiplicar o número por 3 sem usar o operador *.
+1
+val & (val - 1) apaga o menor bit ativo em 1.
+A expressão val & (val - 1) limpa o bit 1 de menor ordem de um inteiro, técnica usada para contar bits ativos ou testar potências de 2.
+7007
+O que são campos de bits (bit-fields) dentro de uma estrutura struct na linguagem C?
+Membros de uma struct cuja largura em número exato de bits é explicitamente especificada pelo programador.
+Arrays dinâmicos de inteiros alocados automaticamente no momento da compilação.
+Ponteiros especiais que apontam apenas para registradores do processador.
+Funções de pré-processamento para criptografia de dados.
+1
+Bit-fields permitem declarar membros de struct especificando o tamanho em bits de cada campo.
+Na linguagem C, pode-se declarar unsigned int campo : 3; dentro de uma struct para restringir a variável a armazenar apenas 3 bits.
+7008
+Qual combinação de operadores bitwise é utilizada para desligar (definir como 0) um determinado bit usando a máscara M?
+val = val & (~M)
+val = val | M
+val = val ^ M
+val = val << M
+1
+Operar AND com a máscara invertida (~M) zera os bits correspondentes.
+Para desligar (setar em 0) bits específicos, aplica-se o operador AND (&) com a máscara invertida (complemento de um ~M).
+7009
+Qual é o resultado do deslocamento à direita val >> 1 em uma variável do tipo unsigned int contendo o valor 16?
+8
+32
+4
+0
+1
+Deslocar 1 bit à direita divide um inteiro positivo por 2.
+Em inteiros sem sinal, mover bits 1 posição à direita (>> 1) é equivalente a realizar a divisão inteira por 2 (16 / 2 = 8).
+7010
+Como se pode testar se um determinado bit de uma variável val está ativo (igual a 1) usando uma máscara M?
+Avaliando a condição (val & M) != 0
+Avaliando a condição (val | M) == 0
+Avaliando a condição (val ^ M) == val
+Avaliando a condição (val ~ M) != 0
+1
+Se val & M for diferente de 0, significa que o bit testado na máscara estava ativo em val.
+Para verificar o estado de um bit, faz-se o AND bitwise com a máscara M; se o resultado for não-zero, o bit está ligado.

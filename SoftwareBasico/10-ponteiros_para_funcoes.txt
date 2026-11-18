@@ -1,0 +1,90 @@
+10001
+Qual é a sintaxe correta para declarar um ponteiro p para uma função que recebe dois inteiros e retorna um inteiro em C?
+int (*p)(int, int);
+int *p(int, int);
+int p*(int, int);
+void p(int*, int*);
+1
+int (*p)(int, int) declara um ponteiro para função; os parênteses em (*p) são obrigatórios.
+Os parênteses ao redor do operador * e do nome (*p) são necessários em C para indicar que p é um ponteiro para uma função, e não uma função que retorna um int*.
+10002
+Como se atribui o endereço de uma função existente int somar(int a, int b) a um ponteiro de função p compatível em C?
+p = somar;
+p = &somar();
+p = somar(a, b);
+p = *somar;
+1
+O nome da função sem parênteses avalia para seu endereço de memória.
+Em C, utilizar o identificador da função sem os parênteses de chamada devolve o endereço de memória de início do seu código.
+10003
+Qual é a utilidade prática de ponteiros para funções na biblioteca padrão da linguagem C, como no caso da função qsort?
+Permitir que o usuário passe uma função personalizada de comparação de elementos como argumento.
+Acelerar o pré-processamento de macros textuais no compilador.
+Converter arquivos texto em planilhas eletrônicas criptografadas.
+Impedir a alocação dinâmica de memória na pilha de execução.
+1
+qsort utiliza ponteiro para função para delegar a regra de comparação ao chamador.
+A função padrão qsort utiliza um ponteiro de função de comparação (callback) para ordenar arrays de qualquer tipo de dado de forma genérica.
+10004
+O que caracteriza uma função de callback na linguagem C?
+Uma função cujo endereço é passado como parâmetro para outra função, que a invoca quando apropriado.
+Uma função que retorna obrigatoriamente a si mesma de forma recursiva.
+Uma função declarada dentro do arquivo .h sem protótipo no arquivo .c.
+Uma função restrita a manipular exclusivamente arquivos de banco de dados.
+1
+Callback é uma função invocada indiretamente por meio de um ponteiro passado como argumento.
+Em C, chamamos de callback a técnica onde o endereço de uma função é repassado a um módulo para que este a execute sob determinadas condições.
+10005
+Qual deve ser o tipo de retorno e os tipos dos argumentos da função de comparação exigida pela função qsort em C?
+Retorna int e recebe dois ponteiros genéricos constantes (const void*, const void*).
+Retorna void e recebe dois inteiros por valor (int, int).
+Retorna float e recebe um vetor de caracteres (char*).
+Retorna bool e recebe dois ponteiros de estruturas (struct*, struct*).
+1
+A assinatura para qsort deve ser int compar(const void *a, const void *b).
+O protótipo esperado por qsort para a função comparadora é int (*compar)(const void *, const void *), retornando <0, 0 ou >0.
+10006
+Qual é a sintaxe correta para invocar uma função através do ponteiro p_func que recebe os inteiros x e y?
+p_func(x, y); (ou (*p_func)(x, y);)
+call p_func(x, y);
+*p_func->(x, y);
+&p_func(x, y);
+1
+Em C moderno, pode-se chamar p_func(x, y) diretamente como se fosse uma função comum.
+A linguagem C permite invocar a função apontada tanto pela notação explicita (*p_func)(x, y) quanto pela notação simplificada p_func(x, y).
+10007
+O que possibilita a criação de um vetor de ponteiros para funções em C?
+Implementar tabelas de salto (jump tables) ou menus de comandos acionados por índices numéricos.
+Alocar dinamicamente a memória do processador sem usar o sistema operacional.
+Eliminar todas as instruções if e while do código-fonte C.
+Imprimir o código binário de todas as funções diretamente na tela.
+1
+Vetores de ponteiros para funções são usados em tabelas de comandos e estados.
+Arrays de ponteiros de funções permitem criar tabelas de despachamento (dispatch/jump tables), executando funções baseadas em um índice numérico.
+10008
+Como ponteiros para funções podem ser utilizados para simular comportamento polimórfico ou OO na linguagem C procedural?
+Armazenando ponteiros de funções dentro de structs para funcionarem como métodos associados àquele tipo de dado.
+Convertendo todas as variáveis locais da struct em variáveis globais estáticas.
+Utilizando a diretiva #include para importar arquivos de código Java ou C++.
+Declarando a struct com a palavra-chave class antes da função main.
+1
+Campos de ponteiros para funções dentro de structs simulam tabelas de métodos virtuais (vtable).
+Em C, pode-se colocar ponteiros de funções em structs para associar comportamentos específicos (métodos) a instâncias de dados.
+10009
+O que ocorre se um programa tentar invocar uma função por meio de um ponteiro para função contendo o valor NULL?
+Ocorre uma falha de segmentação (segmentation fault) imediata por tentativa de execução em endereço inválido.
+O programa simplesmente ignora a chamada e segue para a linha seguinte.
+A função main é reiniciada automaticamente com os parâmetros originais.
+O compilador exibe um aviso na tela e atribui zero às variáveis locais.
+1
+Invocar ponteiro de função nulo tenta executar o endereço 0, gerando crash.
+Tentar chamar uma função através de um ponteiro nulo (NULL) é um acesso ilegal à memória que encerra o processo com erro de segmentação.
+10010
+Como a instrução typedef pode ser utilizada para simplificar a declaração de ponteiros para funções em C?
+Criando um novo nome de tipo que representa a assinatura do ponteiro para função (ex: typedef int (*FuncPtr)(int, int);).
+Convertendo o ponteiro de função em uma constante de pré-processador.
+Removendo a necessidade de parênteses e asteriscos de todas as funções do projeto.
+Garantindo que a função apontada seja compilada em linguagem Assembly.
+1
+typedef simplifica tipos complexos de ponteiros para função em aliases legíveis.
+O uso de typedef int (*FuncOp)(int, int); permite declarar variáveis de ponteiro para função com a sintaxe simples FuncOp p;.

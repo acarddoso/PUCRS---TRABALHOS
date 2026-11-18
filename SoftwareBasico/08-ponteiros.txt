@@ -1,0 +1,90 @@
+8001
+O que armazena essencialmente uma variável declarada como ponteiro na linguagem C?
+O endereço de memória onde outra variável ou dado está armazenado.
+O valor textual da constante de compilação em formato ASCII.
+Uma cópia criptografada das variáveis globais do sistema.
+O tamanho em bytes do arquivo executável no disco.
+1
+Ponteiros são variáveis cujo conteúdo é um endereço de memória.
+Na linguagem C, um ponteiro armazena como seu valor o endereço de memória de outra variável.
+8002
+Qual operador é utilizado em C para obter o endereço de memória de uma variável existente?
+O operador & (e comercial).
+O operador * (asterisco).
+O operador -> (seta).
+O operador % (porcentagem).
+1
+O operador & é o operador de endereço em C.
+Para obter a posição de memória de uma variável v em C, utiliza-se a sintaxe &v.
+8003
+O que faz o operador de indireção/desreferenciação (*) quando aplicado a um ponteiro em C?
+Acessa ou modifica o valor armazenado na posição de memória para a qual o ponteiro aponta.
+Retorna a quantidade de bytes ocupada pela variável ponteiro.
+Apaga o endereço armazenado no ponteiro atribuindo-lhe zero.
+Multiplica o endereço de memória por 2.
+1
+O operador * lê ou escreve na posição de memória apontada.
+Aplicar * p acessa o dado contido no endereço de memória guardado na variável ponteiro p.
+8004
+O que significa inicializar um ponteiro com a constante NULL na linguagem C?
+Indicar explicitamente que o ponteiro não está apontando para nenhum endereço válido de memória.
+Garantir que o ponteiro aponte para o primeiro byte da instrução main.
+Alocar automaticamente 100 bytes no Heap para o ponteiro.
+Tornar o ponteiro acessível por programas rodando em outros computadores.
+1
+NULL indica um ponteiro nulo, que não aponta para um endereço válido.
+Atribuir NULL a um ponteiro indica formalmente que ele está nulo e não faz referência a qualquer dado ou objeto na memória.
+8005
+Na aritmética de ponteiros em C, se p é um int* (4 bytes por int) no endereço 1000, qual será o endereço resultante da operação p + 1?
+1004
+1001
+1002
+1008
+1
+A aritmética de ponteiros avança em múltiplos do sizeof do tipo apontado.
+Somar 1 a um ponteiro avança seu endereço pelo tamanho em bytes do tipo apontado; para int (4 bytes), 1000 + (1 * 4) = 1004.
+8006
+O que é um ponteiro genérico do tipo void* em C e qual é a sua principal restrição?
+Pode apontar para qualquer tipo de dado, mas não pode ser desreferenciado diretamente sem coerção de tipo (cast).
+Pode armazenar apenas endereços de funções void e não permite atribuição de valores.
+Só pode ser utilizado dentro da função main e exige inicialização constante.
+É um ponteiro que libera a memória apontada automaticamente ao sair do bloco.
+1
+void* armazena qualquer endereço, mas exige cast para desreferenciação ou aritmética.
+O tipo void* representa um ponteiro genérico sem tipo associado; por não ter tipo, o compilador exige conversão (cast) para saber quantos bytes desreferenciar.
+8007
+Considerando o vetor int v[5];, qual das seguintes expressões usando aritmética de ponteiros é equivalente a v[i]?
+*(v + i)
+&v + i
+*v + i
+v & i
+1
+v[i] é uma notação sintática equivalente a *(v + i).
+Na linguagem C, a notação de colchetes v[i] é traduzida internamente pelo compilador como *(v + i).
+8008
+O que representa a declaração int **pp; na linguagem C?
+Um ponteiro para ponteiro, ou seja, uma variável que armazena o endereço de outro ponteiro do tipo int*.
+Um vetor bidimensional estático de 2x2 inteiros.
+Uma função que retorna o produto de dois números inteiros.
+Um ponteiro constante para uma estrutura global não inicializada.
+1
+int ** é uma variável ponteiro para guardar o endereço de outra variável ponteiro int*.
+A notação ** indica duplo nível de indireção; pp guarda o endereço de memória de uma variável ponteiro para inteiro.
+8009
+O que acontece quando um programa em C tenta desreferenciar (*p) um ponteiro que contém o valor NULL?
+Ocorre uma falha de segmentação (segmentation fault / falha de acesso à memória) e o programa é encerrado.
+O compilador atribui automaticamente o valor 0 à expressão sem interromper o programa.
+O ponteiro é automaticamente redirecionado para a primeira posição do vetor global.
+O sistema operacional ignora a instrução e continua a execução normalmente.
+1
+Desreferenciar NULL é uma violação de acesso à memória que aborta o programa.
+Tentar ler ou escrever no endereço nulo (NULL / 0) provoca violação de memória (segmentation fault), fazendo o sistema operacional encerrar o processo.
+8010
+Qual é o resultado da subtração de dois ponteiros (p2 - p1) do mesmo tipo apontando para elementos do mesmo vetor em C?
+O número de elementos (índices) situados entre os dois ponteiros no vetor.
+O endereço de memória em bytes do elemento central do vetor.
+Um ponteiro nulo (NULL) representando o inicio da memória.
+A soma em bytes dos dados armazenados em p1 e p2.
+1
+A subtração de ponteiros de mesmo tipo resulta no número de elementos entre eles.
+Em C, subtrair dois ponteiros do mesmo tipo e apontando para o mesmo array retorna a quantidade de elementos (distância em posições) entre eles.

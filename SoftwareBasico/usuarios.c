@@ -93,6 +93,47 @@ int calcularSequencia(FILE *arquivo) {
     return sequencia;
 }
 
+void mostrarBoasVindas(char nomeUser[]) {
+    char nomeArq[60];
+    char data[11];
+    char ultimaData[11] = "";
+    double pontos;
+    int utilizacoes = 0;
+    int sequencia;
+    FILE *arquivo;
+
+    sprintf(nomeArq, "%s.txt", nomeUser);
+    arquivo = fopen(nomeArq, "r");
+
+    if (arquivo != NULL) {
+        while (fscanf(arquivo, "%10s %lf", data, &pontos) == 2) {
+            utilizacoes++;
+            if (strcmp(data, ultimaData) > 0) {
+                strcpy(ultimaData, data);
+            }
+        }
+    }
+
+    if (utilizacoes == 0) {
+        printf("\nBem-vindo, %s! Vamos comecar seu primeiro treino?\n", nomeUser);
+        printf("Acerte todas as questoes para registrar sua primeira sessao.\n\n");
+        if (arquivo != NULL) {
+            fclose(arquivo);
+        }
+        return;
+    }
+
+    sequencia = calcularSequencia(arquivo);
+    fclose(arquivo);
+
+    printf("\nBom ter voce de volta, %s!\n", nomeUser);
+    printf("Voce ja completou %d sessao(oes) de treino.\n", utilizacoes);
+    // A sequencia parte da ultima data do historico, mesmo que nao seja hoje.
+    printf("🔥 Sua ultima sequencia foi de %d dia(s) consecutivo(s), ate %s.\n",
+           sequencia, ultimaData);
+    printf("Vamos praticar mais um pouco?\n\n");
+}
+
 void mostrarEstatisticas(char nomeUser[]) {
     char nomeArq[60];
     char data[11];

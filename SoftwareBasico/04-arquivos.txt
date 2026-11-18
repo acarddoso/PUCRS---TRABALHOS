@@ -1,0 +1,90 @@
+4001
+Qual tipo de dado definido na biblioteca <stdio.h> é utilizado como ponteiro para gerenciar fluxos de arquivos em C?
+FILE*
+FSTREAM*
+ARCHIVE*
+DOC*
+1
+FILE* é a estrutura de controle de fluxo de arquivo em C.
+Na linguagem C, a manipulação de arquivos utiliza o ponteiro para a estrutura FILE definida em <stdio.h>.
+4002
+Qual é o comportamento do modo de abertura w na chamada fopen(dados.txt, w) se o arquivo já existir no disco?
+O conteúdo anterior do arquivo é totalmente apagado e um novo arquivo vazio é sobrescrito.
+O novo conteúdo é anexado ao final do arquivo existente sem apagar nada.
+A função falha imediatamente e retorna um ponteiro inválido.
+O arquivo é aberto em modo de apenas leitura protegida.
+1
+O modo w sobrescreve e trunca o arquivo existente para tamanho zero.
+Abrir um arquivo existente no modo w apaga todo o seu conteúdo anterior para a gravação de novos dados.
+4003
+Qual função em C escreve dados formatados em um arquivo apontado por um ponteiro FILE*, de forma análoga ao printf?
+fprintf
+fscanf
+fputs
+fwrite
+1
+fprintf formata e envia saída textual para um fluxo de arquivo.
+A função fprintf opera exatamente como printf, mas direciona a saída para um arquivo especificado pelo ponteiro FILE*.
+4004
+Qual é a importância de chamar a função fclose(fp) após concluir as operações de leitura ou escrita em um arquivo em C?
+Descarrega os buffers de E/S no disco e libera os recursos associados ao fluxo pelo sistema operacional.
+Exclui o arquivo físico do disco rígido para economizar espaço de armazenamento.
+Converte os dados lidos em formato binário criptografado de alta segurança.
+Reinicializa o programa C a partir da primeira instrução da função main.
+1
+fclose garante que todos os dados em buffer sejam salvos no disco e fecha a conexão.
+A função fclose força a gravação do buffer residual (flush) e libera o identificador de arquivo aberto no sistema.
+4005
+Qual função da biblioteca <stdio.h> é utilizada para ler blocos contíguos de dados binários diretamente de um arquivo?
+fread
+fwrite
+fgets
+fscanf
+1
+fread realiza leitura de blocos binários de memória diretamente do arquivo.
+A função fread lê N elementos de determinado tamanho em bytes de um arquivo binário e os armazena na memória.
+4006
+Para que serve a função fseek(fp, offset, origem) na manipulação de arquivos na linguagem C?
+Para posicionar o indicador de posição de leitura/escrita do arquivo em um deslocamento específico.
+Para buscar uma palavra-chave textual dentro do arquivo e substituí-la por outra.
+Para truncar o tamanho do arquivo para zero bytes imediatamente.
+Para verificar se o arquivo possui vírus ou dados corrompidos.
+1
+fseek altera a posição corrente no fluxo do arquivo.
+A função fseek permite mover o ponteiro interno de posição do arquivo para qualquer offset relativo à origem fornecida.
+4007
+O que representa a constante SEEK_END utilizada como parâmetro de origem na função fseek em C?
+O fim do arquivo (End Of File).
+O início do arquivo.
+A posição atual do ponteiro de arquivo.
+O primeiro caractere após o cabeçalho.
+1
+SEEK_END define o ponto de referência no final do arquivo.
+Na fseek, SEEK_END faz com que o deslocamento seja calculado a partir do final do arquivo.
+4008
+Como a função feof(fp) sinaliza que o final de um arquivo foi atingido durante chamadas de leitura em C?
+Retorna um valor diferente de zero (verdadeiro) após tentar ler além do último caractere do arquivo.
+Retorna 0 assim que o arquivo é aberto em modo de leitura.
+Interrompe imediatamente a execução do programa lançando uma exceção no sistema.
+Apaga o ponteiro FILE* da memória RAM.
+1
+feof retorna verdadeiro (não-zero) após uma tentativa de leitura além do fim do arquivo.
+A função feof indica se a flag de Fim de Arquivo (EOF) foi ativada após uma operação de leitura tentar ir além dos dados existentes.
+4009
+Qual é o valor retornado pela função fopen caso ela não consiga abrir o arquivo solicitado (por exemplo, arquivo inexistente)?
+NULL
+0
+-1
+EOF
+1
+fopen retorna NULL caso ocorra qualquer erro na abertura do arquivo.
+Se a abertura do arquivo falhar (falta de permissão, caminho inválido, etc.), fopen devolve o ponteiro nulo NULL.
+4010
+Qual função é recomendada para ler uma linha inteira de texto de um arquivo até encontrar quebra de linha ou limite de buffer?
+fgets
+fgetc
+gets
+fscanf
+1
+fgets lê uma linha de texto com controle estrito do tamanho do buffer.
+A função fgets lê até N-1 caracteres do arquivo para uma string, preservando a segurança contra estouro de buffer.

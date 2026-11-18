@@ -28,6 +28,5 @@ nas proximas sessoes para manter seu historico.
 
 Situacao atual
 
-Esta versao utiliza os tres modulos disponibilizados ate o momento.
-Os outros sete ainda precisam ser adicionados para completar os dez
-modulos exigidos no trabalho.
+O programa utiliza dez modulos e sorteia uma questao de cada um,
+totalizando dez questoes iniciais por sessao.
