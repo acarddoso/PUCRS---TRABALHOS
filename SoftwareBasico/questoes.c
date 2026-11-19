@@ -13,10 +13,12 @@ void mostrarQuestao(struct Questao quest) {
 
 int lerResposta(void) {
     char resposta;
+    int caractere;
 
     while (1){
         printf("Digite sua resposta: ");
         scanf(" %c", &resposta);
+        while ((caractere = getchar()) != '\n' && caractere != EOF) {}
 
         if (resposta == 'A' || resposta == 'a') {
             return 1;
